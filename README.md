@@ -24,3 +24,6 @@ Usefull links for webdev, server management, and my lessons learned.
 - [Make PHP show errors instead of blank 500 page](https://stackoverflow.com/questions/2687730/how-can-i-make-php-display-the-error-instead-of-giving-me-500-internal-server-er)
 
 ### Front-end
+
+## IDE and Software
+- [MySQL Workbench - fingerprint has changed fix](https://stackoverflow.com/a/57922063/1110760)
