@@ -22,6 +22,7 @@ Usefull links for webdev, server management, and my lessons learned.
 
 - [Make sure to update used PHP version in Apache](https://serverfault.com/a/815479/154604)
 - [Make PHP show errors instead of blank 500 page](https://stackoverflow.com/questions/2687730/how-can-i-make-php-display-the-error-instead-of-giving-me-500-internal-server-er)
+- [New in PHP 8](https://stitcher.io/blog/new-in-php-8)
 
 ### Front-end
 
