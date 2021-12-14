@@ -16,6 +16,7 @@ Usefull links for webdev, server management, and my lessons learned.
 - [Remove files with specific match](https://www.linuxshelltips.com/remove-files-with-specific-extension-in-linux/)
 - [List enabled virtual hosts](https://www.tecmint.com/list-enabled-virtual-hosts-in-apache-web-server/)
 - [VirtualHost Macros](https://httpd.apache.org/docs/2.4/mod/mod_macro.html)
+- [VIM - find and replace](https://linuxize.com/post/vim-find-replace/)
 
 ## Web development
 
