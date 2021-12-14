@@ -9,11 +9,19 @@
 
 /etc/sites-available/000-macros.conf
 ```xml
-<Macro VHostRedirect $port $servname $redir>
-<VirtualHost *:$port>
+<Macro VHostRedirect $servname $redir>
+<VirtualHost *:80>
         ServerName $servname
         Redirect permanent / https://$redir/
 </VirtualHost>
+</Macro>
+
+<Macro VHostRewrite $servname $redir>
+<VirtualHost *:443>
+        ServerName $servname
+        RewriteEngine on
+        RewriteRule ^ https://$redir%{REQUEST_URI} [END,NE,R=permanent]
+</virtualHost>
 </Macro>
 
 <Macro VHostSSL $servname $dir>
@@ -46,13 +54,19 @@
 
 /etc/apache2/sites-available/example.nl.conf
 ```xml
+<Macro VHostBlock $servname>
 <IfModule mod_ssl.c>
-use VHostSSL example.nl example.nl/www/webroot
-use VHostSSL sub.example.nl example.nl/www/webroot
-use VHostRedirect 443 www.example.nl example.nl
+use VHostSSL $servname $servname/www/webroot
+use VHostSSL sub.$servname $servname/www/webroot
+use VHostRewrite www.$servname $servname
 </IfModule>
 
-use VHostRedirect 80 example.nl example.nl
-use VHostRedirect 80 www.example.nl example.nl
-use VHostRedirect 80 sub.example.nl sub.example.nl
+use VHostRedirect $servname $servame
+use VHostRedirect www.$servname $servame
+use VHostRedirect sub.$servname sub.$servame
+</Macro>
+
+use VHostBlock example.nl
+
+UndefMacro VHostBlock
 ```
