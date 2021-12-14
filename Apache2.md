@@ -7,6 +7,7 @@
 - Add certificates by using `certbot certonly -d example.nl`, option 1 (apache server plugin). Make sure to comment out `use VHostRedirect 80 example.nl example.nl` whilst doing so, otherwise it won't work.
 - use `apachectl -S` to see all current virtualhosts
 
+/etc/sites-available/000-macros.conf
 ```xml
 <Macro VHostRedirect $port $servname $redir>
 <VirtualHost *:$port>
@@ -41,7 +42,10 @@
         Include /etc/letsencrypt/options-ssl-apache.conf
 </VirtualHost>
 </Macro>
+```
 
+/etc/apache2/sites-available/example.nl.conf
+```xml
 <IfModule mod_ssl.c>
 use VHostSSL example.nl example.nl/www/webroot
 use VHostSSL sub.example.nl example.nl/www/webroot
@@ -51,7 +55,4 @@ use VHostRedirect 443 www.example.nl example.nl
 use VHostRedirect 80 example.nl example.nl
 use VHostRedirect 80 www.example.nl example.nl
 use VHostRedirect 80 sub.example.nl sub.example.nl
-
-UndefMacro VHostRedirect
-UndefMacro VHostSSL
 ```
