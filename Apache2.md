@@ -4,7 +4,7 @@
 
 - To use in /etc/apache2/sites-available
 - Make sure to `a2enmod ssl` and `a2enmod macro`
-- Add certificates by using `certbot certonly -d example.nl`, option 1 (apache server plugin). Make sure to comment out `use VHostRedirect 80 example.nl example.nl` whilst doing so, otherwise it won't work.
+- Add certificates by using `certbot certonly -d example.nl`, option 1 (apache server plugin). Make sure to comment out everything whilst doing so, otherwise it won't work.
 - Make sure to `systemctl reload apache2` for any changes to take effect
 - use `apachectl -S` to see all current virtualhosts
 
